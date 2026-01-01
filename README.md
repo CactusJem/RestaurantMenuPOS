@@ -71,7 +71,7 @@ app/
 │  └─ activity_main.xml
 └─ AndroidManifest.xml
 
-````
+
 
 ---
 
