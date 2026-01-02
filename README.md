@@ -1,13 +1,13 @@
 ```md
-# RestaurantMenuPOS — Hybrid Android WebView (Java) + Firebase Hosting + Firestore
+ RestaurantMenuPOS — Hybrid Android WebView (Java) + Firebase Hosting + Firestore
 
 RestaurantMenuPOS is a hybrid mobile application where the restaurant ordering UI is delivered as a Firebase-hosted web app and rendered inside an Android WebView. The Android side (Java) provides mobile-specific responsibilities such as Activity lifecycle, WebView configuration, native back navigation, error handling, JavaScript-to-Java bridge, and OOP domain modeling (MenuItem, OrderItem, Order, OrderRepository).
 
 ---
 
-## Key Features
+ Key Features
 
-### Web App (Firebase Hosting)
+ Web App (Firebase Hosting)
 - Menu browsing by category (web UI)
 - Cart management (add/remove items, quantity)
 - Notes per item
@@ -17,7 +17,7 @@ RestaurantMenuPOS is a hybrid mobile application where the restaurant ordering U
   - `orders/{orderId}`
   - `staff/{staffName}/orders/{orderId}`
 
-### Android App (Java)
+ Android App (Java)
 - WebView container to run the web app inside an APK
 - Mobile lifecycle handling: `onCreate`, `onPause`, `onResume`, `onDestroy`
 - Native back behavior (WebView history back before exiting app)
@@ -37,23 +37,23 @@ RestaurantMenuPOS is a hybrid mobile application where the restaurant ordering U
 
 ---
 
-## Architecture Overview
+ Architecture Overview
 
-### Android (Java)
+ Android (Java)
 - `MainActivity` hosts a WebView, configures settings, injects JS bridge, handles back navigation and lifecycle.
 - `WebAppInterface` exposes native Java methods to JavaScript (`AndroidApp.*`).
 - OOP models (`MenuItem`, `OrderItem`, `Order`) and `OrderRepository` store and process order data on the Android side.
 
-### Web (Firebase Hosting)
+ Web (Firebase Hosting)
 - Static web app (HTML/CSS/JS) served from Firebase Hosting.
 - Handles cart UI, payment logic, and Firestore writes via Firebase JS SDK.
 
-### Firebase (Cloud Firestore)
+ Firebase (Cloud Firestore)
 - Stores orders and staff-linked order history.
 
 ---
 
-## Project Structure (Android)
+ Project Structure (Android)
 
 ```
 
@@ -75,7 +75,7 @@ app/
 
 ---
 
-## How It Works (End-to-End Flow)
+ How It Works (End-to-End Flow)
 
 1. Android app launches → `MainActivity` loads Firebase Hosting URL in WebView.
 2. User interacts with the web menu/cart/payment UI.
@@ -89,7 +89,7 @@ app/
 
 ---
 
-## JavaScript ↔ Java Bridge
+ JavaScript ↔ Java Bridge
 
 Android injects a Java object into WebView:
 
@@ -121,7 +121,7 @@ if (window.AndroidApp && AndroidApp.showToast) {
 
 ---
 
-## Mobile Programming Concepts Demonstrated
+ Mobile Programming Concepts Demonstrated
 
 This project intentionally includes native Android fundamentals beyond simply loading a website:
 
@@ -146,7 +146,7 @@ This project intentionally includes native Android fundamentals beyond simply lo
 
 ---
 
-## Requirements
+ Requirements
 
 * Android Studio (recommended latest stable)
 * Minimum Android API depends on your project configuration
@@ -168,7 +168,7 @@ This project intentionally includes native Android fundamentals beyond simply lo
 
 ---
 
-## Notes / Known Limitations
+ Notes / Known Limitations
 
 * `OrderRepository` is in-memory only (data resets when app process is killed).
 * The primary UI and database writes currently occur in the web app layer (Firebase JS SDK).
@@ -176,7 +176,7 @@ This project intentionally includes native Android fundamentals beyond simply lo
 
 ---
 
-## Future Improvements
+ Future Improvements
 
 * Add a native Android screen (e.g., Order History Activity) to display orders from `OrderRepository`
 * Persist orders locally using Room/SQLite for offline support
