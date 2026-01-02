@@ -55,7 +55,7 @@ RestaurantMenuPOS is a hybrid mobile application where the restaurant ordering U
 
  ## Project Structure (Android)
 
-```text
+
 app/
 └── src/
     └── main/
